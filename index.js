@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Load the database
 const db = require('./src/services/database');
+const { env } = require('process');
 
 // All the flip coin functions used
 function coinFlip() {
@@ -86,3 +87,10 @@ if (args.help || args.h) {
     console.log(help);
     process.exit(0);
 }
+
+const port = args.port || process.env.PORT || 5000;
+
+// Run server
+const server = app.listen(port, () => {
+    console.log(`App is running on port ${port}`)
+});
