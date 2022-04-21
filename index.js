@@ -113,3 +113,8 @@ app.use((req, res, next) => {
     next();
 })
 
+// Endpoints
+app.get('/app', (req, res, next) => {
+    res.json({ "message": "Your API works! (200)" });
+    res.status(200);
+}); 
