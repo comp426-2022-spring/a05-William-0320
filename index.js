@@ -10,16 +10,19 @@ const args = require('minimist')(process.argv.slice(2));
 // If --log=false then do not create a log file
 if (args.log == 'false') {
     console.log("NOTICE: not creating file access.log")
-  } else {
-  // Use morgan for logging to files
-  // Create a write stream to append to an access.log file
+} else {
+    // Use morgan for logging to files
+    // Create a write stream to append to an access.log file
     const accessLog = fs.createWriteStream('access.log', { flags: 'a' })
-  // Set up the access logging middleware
+    // Set up the access logging middleware
     app.use(morgan('combined', { stream: accessLog }))
-  }
-  
-  // Make express use its own built-in body parser
-  app.use(express.urlencoded({extended: true}));
+}
+
+// Serve static HTML files
+app.use(express.static('./public'));
+
+// Make express use its own built-in body parser
+app.use(express.urlencoded({ extended: true }));
 
 // Load the database
 const db = require('./src/services/database');
@@ -79,7 +82,7 @@ server.js [options]
 `;
 
 // If client requests help
-if(args.help || args.h){
+if (args.help || args.h) {
     console.log(help);
     process.exit(0);
 }
