@@ -154,3 +154,10 @@ if (args.debug || args.d) {
         throw new Error("Error test successful.");
     });
 }
+
+// Default endpoint for any other requests
+app.use(function(req, res){
+    const statusCode = 404
+    const statusMessage = 'NOT FOUND'
+    res.status(statusCode).end(statusCode+ ' ' +statusMessage)
+});
