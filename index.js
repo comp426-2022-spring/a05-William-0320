@@ -125,4 +125,10 @@ app.get('/app', (req, res, next) => {
 app.get('/app/flip', (req, res) => {
     const flip = coinFlip();
     res.status(200).json({"flip": flip});
+});
+
+app.post('/app/flip/coins/', (req, res, next) => {
+    const flips = coinFlips(req.body.number)
+    const count = countFlips(flips)
+    res.status(200).json({"raw":flips,"summary":count})
 })
