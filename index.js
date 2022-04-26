@@ -128,12 +128,12 @@ app.get('/app/flip', (req, res) => {
 });
 
 app.post('/app/flip/coins/', (req, res, next) => {
-    const flips = coinFlips(req.body.number)
-    const count = countFlips(flips)
-    res.status(200).json({"raw":flips,"summary":count})
+    const flips = coinFlips(req.body.number);
+    const count = countFlips(flips);
+    res.status(200).json({"raw":flips,"summary":count});
 });
 
 app.post('/app/flip/call/', (req, res, next) => {
-    const game = flipACoin(req.body.guess)
-    res.status(200).json(game)
+    const game = flipACoin(req.body.guess);
+    res.status(200).json(game);
 });
