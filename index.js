@@ -120,17 +120,17 @@ app.use((req, res, next) => {
 app.get('/app', (req, res, next) => {
     res.json({ "message": "Your API works! (200)" });
     res.status(200);
-}); 
+});
 
 app.get('/app/flip', (req, res) => {
     const flip = coinFlip();
-    res.status(200).json({"flip": flip});
+    res.status(200).json({ "flip": flip });
 });
 
 app.post('/app/flip/coins/', (req, res, next) => {
     const flips = coinFlips(req.body.number);
     const count = countFlips(flips);
-    res.status(200).json({"raw":flips,"summary":count});
+    res.status(200).json({ "raw": flips, "summary": count });
 });
 
 app.post('/app/flip/call/', (req, res, next) => {
@@ -141,7 +141,16 @@ app.post('/app/flip/call/', (req, res, next) => {
 app.post('/app/flips/:number', (req, res, next) => {
     const flips = coinFlips(req.params.number);
     const counts = countFlips(flips);
-    res.status(200).json({"raw": flips, "summary": counts});
-  });
+    res.status(200).json({ "raw": flips, "summary": counts });
+});
 
-  
+if (args.debug || args.d) {
+    app.get('/app/log/access', (req, res, next) => {
+        const stmt = db.prepare('SELECT * from accesslog').all();
+        res.status(200).json(stmt);
+    });
+
+    app.get('/app/error', (req, res, next) => {
+        throw new Error("Error test successful.");
+    });
+}
