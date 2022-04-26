@@ -7,6 +7,9 @@ const minimist = require('minimist');
 const app = express();
 const args = require('minimist')(process.argv.slice(2));
 
+// Serve static HTML files
+app.use(express.static('./public'));
+
 // If --log=false then do not create a log file
 if (args.log == 'false') {
     console.log("NOTICE: not creating file access.log")
