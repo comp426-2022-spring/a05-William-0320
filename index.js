@@ -161,3 +161,10 @@ app.use(function(req, res){
     const statusMessage = 'NOT FOUND'
     res.status(statusCode).end(statusCode+ ' ' +statusMessage)
 });
+
+// Tell STDOUT that the server is stopped
+process.on('SIGINT', () => {
+    server.close(() => {
+        console.log('\nApp stopped.');
+    });
+});
