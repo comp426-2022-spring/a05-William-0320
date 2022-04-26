@@ -138,7 +138,7 @@ app.post('/app/flip/call/', (req, res, next) => {
     res.status(200).json(game);
 });
 
-app.post('/app/flips/:number', (req, res, next) => {
+app.get('/app/flips/:number', (req, res) => {
     const flips = coinFlips(req.params.number);
     const counts = countFlips(flips);
     res.status(200).json({ "raw": flips, "summary": counts });
