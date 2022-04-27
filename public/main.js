@@ -23,7 +23,7 @@ function singleFlip(){
         document.getElementById("singleResult").innerHTML = result.flip;
         document.getElementById("singleResulimg").src = `./assets/img/${result.flip}.png`;
 
-    });
+    }); 
 
 }
 // Flip multiple coins and show coin images in table as well as summary results
