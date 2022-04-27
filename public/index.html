@@ -35,17 +35,21 @@
     <button id="guessnav">Guess the result</button>
   </nav>
   <!--The home page of the web-->
-  <div id="home">Homepage of the coin flip game. Allowed operations include:
-    <li>Flip single coin</li>
-    <li>Flip multiple coins</li>
-    <li>Guess a coin</li>
+  <div id="home" calss="active">
+    <h1>Homapage</h1>
+    <ul>
+      <li>Flip single coin</li>
+      <li>Flip multiple coins</li>
+      <li>Guess a coin</li>
+    </ul>
+
   </div>
 
   <!--The single flip page-->
   <div id="single" class="hidden">
     <button onclick="singleFlip()">Single Flip</button>
-    <p id = "Result"></p>
-    <img id = "singleresultimg" src = "/assets/img/coin.png">
+    <p id="Result"></p>
+    <img id="singleresultimg" src="/assets/img/coin.png">
   </div>
   <div id="multi" class="hidden">
 
