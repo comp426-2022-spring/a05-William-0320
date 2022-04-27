@@ -1,19 +1,13 @@
 // Focus div based on nav button click
-document.getElementById("homenav").onclick = function(){
-
+function focusDiv(divname) {
+    var activeDivsCollection = document.getElementsByClassName("active");
+    var activeDivsArr = Array.from(activeDivsCollection)
+    activeDivsArr.forEach(function (currentdiv) {
+        currentdiv.setAttribute("class", "hidden");
+    })
+    document.getElementById(divname).setAttribute("class", "active");
 }
 
-document.getElementById("singlenav").onclick = function(){
-
-}
-
-document.getElementById("multinav").onclick = function(){
-
-}
-
-document.getElementById("guessnav").onclick = function(){
-
-}
 // Flip one coin and show coin image to match result when button clicked
 function singleFlip(){
     fetch('http/localhost:5000/app/flip', {mode: 'cors'}).then(function(response){
