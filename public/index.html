@@ -59,9 +59,9 @@
   <div id="multi" class="hidden">
     <h1>Flip Multiple Coins</h1>
     <form action="javascript:void(0);" method="post" onsubmit="flipCoins()">
-    <label for="numberOfCoins">How many coins?</label>
-    <input type="number" id="numberOfCoins" name="numberOfCoins">
-    <input type="submit" value="Flip Multiple Coins">
+      <label for="numberOfCoins">How many coins?</label>
+      <input type="number" id="numberOfCoins" name="numberOfCoins">
+      <input type="submit" value="Flip Multiple Coins">
     </form>
 
     <div id="Results" class="hidden">
@@ -79,8 +79,12 @@
     </div>
   </div>
 
-
+  <!--The guess flip page-->
   <div id="guess" class="hidden">
+    <h1>Can You Guess The Coin Flip?</h1>
+    <h2>Heads or Tails?</h2>
+    <button id="guessHeads" onclick="guessFlip('heads')">Heads!</button>
+    <button id="guessTails" onclick="guessFlip('tails')">Tails!</button>
 
   </div>
   <script src="main.js"></script>
