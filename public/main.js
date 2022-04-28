@@ -23,5 +23,7 @@ function singleFlip(){
 
 // Flip multiple coins and show coin images in table as well as summary results
 // Enter number and press button to activate coin flip series
-
+function flipCoins(){
+    
+}
 // Guess a flip by clicking either heads or tails button
